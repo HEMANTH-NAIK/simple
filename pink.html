@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Love ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 40px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px white; }
+            to { text-shadow: 0 0 20px yellow; }
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .pink { background-color: #ff4f81; color: white; }
+        .yellow { background-color: #ffd700; color: black; }
+        .green { background-color: #00c853; color: white; }
+        .blue { background-color: #2196f3; color: white; }
+
+        #message {
+            margin-top: 30px;
+            font-size: 20px;
+            min-height: 50px;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-10vh); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>I'm Sorry Nayi❤️</h1>
+
+    <div class="container">
+        <button class="pink" onclick="showLove()">Click for Love 💖</button>
+        <button class="yellow" onclick="compliment()">Compliment 🥰</button>
+        <button class="green" onclick="forgive()">Forgive Me? 🥺</button>
+        <button class="blue" onclick="surprise()">Big Surprise 🎁</button>
+        <button class="pink" onclick="playMusic()">Play Music 🎵</button>
+    </div>
+
+    <div id="message"></div>
+
+    <audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <script>
+        function showLove() {
+            document.getElementById("message").innerHTML =
+                "You are the best thing that ever happened to me ❤️ I promise to make you smile every day!";
+        }
+
+        function compliment() {
+            const compliments = [
+                "You are more beautiful than the stars ✨",
+                "Your smile makes my world brighter ☀️",
+                "You are my happiness 💕",
+                "I am lucky to have you 💖",
+                "You are my queen 👑"
+            ];
+            const random = compliments[Math.floor(Math.random() * compliments.length)];
+            document.getElementById("message").innerHTML = random;
+        }
+
+        function forgive() {
+            document.getElementById("message").innerHTML =
+                "Please forgive me 🥺 I cannot imagine my life without you ❤️";
+        }
+
+        function surprise() {
+            document.getElementById("message").innerHTML =
+                "Surprise!!! I LOVE YOU SO MUCH ❤️❤️❤️";
+            for (let i = 0; i < 30; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.className = "heart";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.fontSize = Math.random() * 20 + 20 + "px";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                document.body.appendChild(heart);
+            }
+        }
+
+        function playMusic() {
+            document.getElementById("music").play();
+            document.getElementById("message").innerHTML =
+                "This song is for you my love 🎵❤️";
+        }
+    </script>
+
+</body>
+</html>
